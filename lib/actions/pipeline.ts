@@ -41,6 +41,7 @@ export async function create(): Promise<Pipeline[]> {
     const JobForPipeline = type.map((t: any) => {
       return {
         type: t,
+        batchId: key,
         ...PreJob,
       }
     });
