@@ -20,7 +20,7 @@ jobs:
       - name: Set up Git
         run: |
           git config --global user.email "kizzaraiva@gmail.com"
-          git config --global user.name "tsomsa"
+          git config --global user.name "viruskizz"
           git config credential.helper store
           echo "https://github.com:${{ secrets.API_TOKEN_GITHUB }}@github.com" > ~/.git-credentials
       - name: Clone client's repo
