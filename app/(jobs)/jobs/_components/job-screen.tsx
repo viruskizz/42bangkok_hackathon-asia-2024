@@ -1,6 +1,7 @@
 "use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RunnerList } from "./runner-list";
+import { CarrierList } from "./carrier-list";
 
 export const JobScreen = () => {
   return (
@@ -23,7 +24,7 @@ export const JobScreen = () => {
         <RunnerList />
       </TabsContent>
       <TabsContent value="carrier" className="bg-white p-4 rounded-b-lg shadow-md">
-        {/* {carrierComponent} */}
+        <CarrierList />
       </TabsContent>
     </Tabs>
   );
