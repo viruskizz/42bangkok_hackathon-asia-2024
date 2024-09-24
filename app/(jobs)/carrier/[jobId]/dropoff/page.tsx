@@ -159,7 +159,7 @@ export default function CarrierJobDropoffPage({
   };
   const orders: TOrder[] = data.orders;
   return (
-    <div className="px-4 py-2">
+    <div className="px-4 py-4">
       <Card className="p-3 bg-red-100">
         <CardHeader className="p-4">
           <CardTitle className="text-center">Batch ID: {data.batchId}</CardTitle>
