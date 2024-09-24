@@ -1,6 +1,6 @@
 import {
   JobItem,
-  TCarrierWItem,
+  TCarrierItem,
   TJobItem,
   TRunnerItem,
   create_job_runnser,
