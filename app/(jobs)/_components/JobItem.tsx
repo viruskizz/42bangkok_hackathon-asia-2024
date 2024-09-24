@@ -23,13 +23,13 @@ export type TItem = {
   id: string;
   name: string;
   quantity: string;
-  is_delivered: boolean;
 };
 
 export type TOrder = {
   id: string;
   location: string;
   items: TItem[];
+  is_delivered: boolean;
 };
 
 export type TCarrierItem = {

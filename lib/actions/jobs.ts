@@ -18,9 +18,15 @@ export async function create(data: Job){
     return res.data;
 }
 
-export async function put(data: Job){
-    const { batchId } = data;
-    const table = `jobs/${batchId}.json`;
+export async function put(jobId:string, data: Job){
+    const table = `jobs/${jobId}.json`;
     const res = await instance.put(table, data);
+    return res.data;
+}
+
+export async function set_job_status(jobId:string, status: string){
+    const table = `jobs/${jobId}.json`;
+    const job = await instance.get(table);
+    const res = await instance.put(table, {...job.data, status: status});
     return res.data;
 }

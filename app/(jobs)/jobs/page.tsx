@@ -17,30 +17,27 @@ export default function JobsPage() {
           {
             id: "O001",
             location: "Location A",
+            is_delivered: false,
             items: [
               {
                 id: "I001",
                 name: "Item A",
                 quantity: "1",
-                is_delivered: false,
               },
               {
                 id: "I001",
                 name: "Item B",
                 quantity: "2",
-                is_delivered: false,
               },
               {
                 id: "I001",
                 name: "Item C",
                 quantity: "1",
-                is_delivered: false,
               },
               {
                 id: "I001",
                 name: "Item D",
                 quantity: "1",
-                is_delivered: false,
               },
             ],
           },
@@ -58,12 +55,12 @@ export default function JobsPage() {
           {
             id: "O002",
             location: "Location B",
+            is_delivered: false,
             items: [
               {
                 id: "I001",
                 name: "Item A",
                 quantity: "1",
-                is_delivered: false,
               },
             ],
           },
@@ -81,12 +78,12 @@ export default function JobsPage() {
           {
             id: "O003",
             location: "Location C",
+            is_delivered: false,
             items: [
               {
                 id: "I001",
                 name: "Item A",
                 quantity: "1",
-                is_delivered: false,
               },
             ],
           },
@@ -104,12 +101,12 @@ export default function JobsPage() {
           {
             id: "O001",
             location: "Location A",
+            is_delivered: false,
             items: [
               {
                 id: "I001",
                 name: "Item A",
                 quantity: "1",
-                is_delivered: false,
               },
             ],
           },

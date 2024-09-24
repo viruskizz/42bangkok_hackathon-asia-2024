@@ -11,6 +11,9 @@
 
 This project was built using **Next.js** for the frontend and **Google Firebase RealTime Database** for the backend, providing a seamless and real-time solution to track and coordinate food orders and deliveries efficiently.
 
+## Demo
+[Web Demo](https://panda-post.up.railway.app/)
+
 ## Key Features
 - **Batch Delivery Optimization:** Orders are grouped by delivery zones and sent together, reducing unnecessary trips.
 - **MRT-Based Delivery Routing:** Utilizes public MRT routes for delivering food in batches, leveraging existing infrastructure.
@@ -71,18 +74,17 @@ Users can place food orders through the web application.
 The system groups orders by proximity and delivery time, sending them via MRT in batches.
 Track deliveries in real-time via Firebase and view estimated delivery times.
 
-**Team Members**
+## Team Members
 - [tsomsa](https://profile.intra.42.fr/users/tsomsa) - Cadet
 - [tliangso](https://profile.intra.42.fr/users/tliangso) - Cadet
 - [tratanat](https://profile.intra.42.fr/users/tratanat) - Cadet
 - [abossel](https://profile.intra.42.fr/users/abossel) - Cadet
+- [nwattana](https://profile.intra.42.fr/users/nwattana) - Cadet
 - Other Members - 42Bangok Home Team
 
-**Acknowledgments**
-
-FoodPanda for sponsoring the 42Asia Hackathon 2024
-42Asia for organizing the hackathon
-
-_Thank to Tech Advisor_
-
-_Thank to 42 Home Team_
+## Acknowledgment
+- FoodPanda for sponsoring the 42Asia Hackathon 2024
+- 42Asia for organizing the hackathon
+- Parthiban Rajindran for advising us during the event
+- 42Bangkok Home Team for their continuous support.
+- Chaiyan Jettanasen for fully support 42bangkok team

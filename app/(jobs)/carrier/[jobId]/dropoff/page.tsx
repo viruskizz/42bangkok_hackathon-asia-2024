@@ -1,5 +1,4 @@
 import { TCarrierItem, TItem, TOrder } from "@/app/(jobs)/_components/JobItem";
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -22,22 +21,9 @@ function OrderItemRow(props: { item: TItem }) {
     <TableRow className="bg-accent">
       <TableCell>
         <div className="font-medium">#{props.item.id}</div>
-        {/* <div className="hidden text-sm text-muted-foreground md:inline">
-          {props.item.name}
-        </div> */}
       </TableCell>
       <TableCell className="sm:table-cell">{props.item.name}</TableCell>
       <TableCell className="sm:table-cell text-right">{props.item.quantity}</TableCell>
-      <TableCell className="sm:table-cell">
-        <Checkbox checked={props.item.is_delivered} id={props.item.id} />
-      </TableCell>
-      {/* <TableCell className="hidden sm:table-cell">
-        <Badge className="text-xs" variant="secondary">
-          Fulfilled
-        </Badge>
-      </TableCell>
-      <TableCell className="hidden md:table-cell">2023-06-23</TableCell>
-      <TableCell className="text-right">$250.00</TableCell> */}
     </TableRow>
   );
 }
@@ -47,8 +33,17 @@ function OrderDetailsCard(props: { order: TOrder }) {
     <div className="mb-4">
       <Card x-chunk="dashboard-05-chunk-3">
         <CardHeader className="px-7">
-          <CardTitle>Order #{props.order.id}</CardTitle>
-          <CardDescription>Location: {props.order.location}</CardDescription>
+          <CardTitle>
+            <div className="flex justify-between">
+              <div className="flex flex-col">Order #{props.order.id}</div>
+              <div className="flex flex-col">
+                <Checkbox id={props.order.id} />
+              </div>
+            </div>
+          </CardTitle>
+          <CardDescription>
+            <div className="flex flex-col">Location: {props.order.location}</div>
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
@@ -58,7 +53,6 @@ function OrderDetailsCard(props: { order: TOrder }) {
                 <div className="flex grow"></div>
                 <TableHead className="hidden sm:table-cell">Name</TableHead>
                 <TableHead className="hidden sm:table-cell">No.</TableHead>
-                <TableHead className="text-right">Delivered</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -110,48 +104,44 @@ export default function CarrierJobDropoffPage({
       {
         id: "O001",
         location: "Location A",
+        is_delivered: false,
         items: [
           {
             id: "I001",
             name: "Item A",
             quantity: "1",
-            is_delivered: false,
           },
           {
             id: "I002",
             name: "Item B",
             quantity: "2",
-            is_delivered: false,
           },
           {
             id: "I003",
             name: "Item C",
             quantity: "1",
-            is_delivered: false,
           },
           {
             id: "I004",
             name: "Item D",
             quantity: "1",
-            is_delivered: false,
           },
         ],
       },
       {
         id: "O002",
         location: "Location A",
+        is_delivered: false,
         items: [
           {
             id: "I005",
             name: "Item A",
             quantity: "2",
-            is_delivered: false,
           },
           {
             id: "I006",
             name: "Item C",
             quantity: "1",
-            is_delivered: false,
           },
         ],
       },
