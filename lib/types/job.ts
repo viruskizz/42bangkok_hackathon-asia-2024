@@ -1,7 +1,7 @@
 import { Station } from "./station";
 import { User } from "./user";
 
-export type JobType = 'PICKUP' | 'DERIVER'
+export type JobType = 'PICKUP' | 'DELIVER'
 export type JobStatus = 'WAITING' | 'DOING' | 'DONE'
 export interface Job {
   type: JobType;

@@ -1,12 +1,15 @@
 import {
   JobItem,
-  TCarrierItem,
+  TCarrierWItem,
   TJobItem,
   TRunnerItem,
+  create_job_runnser,
 } from "@/app/(jobs)/_components/JobItem";
 import { JobScreen } from "./_components/job-screen";
 
-export default function JobsPage() {
+
+export default async function JobsPage() {
+  const data_2 = await create_job_runnser();
   const data: { runner: TRunnerItem[]; carrier: TCarrierItem[] } = {
     runner: [
       {
