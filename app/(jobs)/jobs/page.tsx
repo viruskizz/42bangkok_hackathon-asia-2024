@@ -4,6 +4,7 @@ import {
   TJobItem,
   TRunnerItem,
 } from "@/app/(jobs)/_components/JobItem";
+import { JobScreen } from "./_components/job-screen";
 
 export default function JobsPage() {
   const data: { runner: TRunnerItem[]; carrier: TCarrierItem[] } = {
@@ -151,20 +152,23 @@ export default function JobsPage() {
   };
 
   return (
-    <div className="px-4 py-2">
-      <h1 className="text-white font-black text-3xl">Avaiable Jobs</h1>
-      <h2 className="text-white font-bold text-lg">Runner</h2>
-      <div className="space-y-2">
-        {data.runner.map((job) => {
-          return <JobItem key={job.id} {...job} type="R" />;
-        })}
-      </div>
-      <h2 className="text-white font-bold text-lg">Carrier</h2>
-      <div className="space-y-2">
-        {data.carrier.map((job) => {
-          return <JobItem key={job.id} {...job} type="C" />;
-        })}
-      </div>
+    // <div className="px-4 py-2">
+    //   <h1 className="text-white font-black text-3xl">Avaiable Jobs</h1>
+    //   <h2 className="text-white font-bold text-lg">Runner</h2>
+    //   <div className="space-y-2">
+    //     {data.runner.map((job) => {
+    //       return <JobItem key={job.id} {...job} type="R" />;
+    //     })}
+    //   </div>
+    //   <h2 className="text-white font-bold text-lg">Carrier</h2>
+    //   <div className="space-y-2">
+    //     {data.carrier.map((job) => {
+    //       return <JobItem key={job.id} {...job} type="C" />;
+    //     })}
+    //   </div>
+    // </div>
+    <div className="flex justify-center w-full">
+      <JobScreen />
     </div>
   );
 }
