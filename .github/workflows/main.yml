@@ -22,8 +22,6 @@ jobs:
           git config --global user.email "kizzaraiva@gmail.com"
           git config --global user.name "viruskizz"
           git config credential.helper store
-          echo "https://github.com:${{ secrets.API_TOKEN_GITHUB }}@github.com" >> ~/.git-credentials
-          echo "https://2024-Hackathon-by-42-in-Asia:${{ secrets.API_TOKEN_GITHUB }}@github.com" >> ~/.git-credentials
       - name: Clone client's repo
         run: git clone ${{ env.SOURCE_REPO }} ${{ env.DIRECTORY }}
       - name: Fetch latest changes
@@ -32,7 +30,7 @@ jobs:
       - name: Set upstream
         working-directory: ${{ env.DIRECTORY }}
         run: |
-            git remote add upstream ${{ env.DESTINATION_REPO }}
+            git remote add upstream : https://2024-Hackathon-by-42-in-Asia:${{ secrets.API_TOKEN_GITHUB }}@github.com/2024-Hackathon-by-42-in-Asia/42-Bangkok-Repository.git
             git fetch upstream
       - name: Merge changes
         run: |
