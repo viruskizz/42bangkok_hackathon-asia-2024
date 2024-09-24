@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PandaPost - Sustainable Food Delivery via Public Transport 🚄🍱
 
-## Getting Started
+<center>
+    <img src="./public/logo-icon.png" width="720">
+</center>
 
-First, run the development server:
+### 42Asia Hackathon 2024 - Sponsored by FoodPanda
+
+## Project Overview
+**PandaPost** is a sustainable food delivery solution designed to reduce carbon emissions by utilizing MRT public transport for food delivery. Instead of delivering individual orders, we introduce a batch delivery model where multiple food orders are collected and delivered together using public transport routes, minimizing the carbon footprint of traditional delivery methods.
+
+This project was built using **Next.js** for the frontend and **Google Firebase RealTime Database** for the backend, providing a seamless and real-time solution to track and coordinate food orders and deliveries efficiently.
+
+## Key Features
+- **Batch Delivery Optimization:** Orders are grouped by delivery zones and sent together, reducing unnecessary trips.
+- **MRT-Based Delivery Routing:** Utilizes public MRT routes for delivering food in batches, leveraging existing infrastructure.
+- **Real-Time Tracking:** Google Firebase ensures live updates on food orders, batch status, and delivery progress.
+- **Carbon Emission Reduction:** Less reliance on motorbikes or cars for individual deliveries, reducing greenhouse gas emissions.
+
+## Tech Stack
+- **Frontend:** [Next.js](https://nextjs.org/)
+- **Backend:** [Google Firebase Realtime Database](https://firebase.google.com/products/realtime-database)
+- **Hosting:** [Railway](https://railway.app/)
+- **DevOps** Github Actions
+
+## Installation
+
+### Prerequisites
+- Node.js (version 20+)
+- Firebase account
+
+## Steps
+
+1. **Set up Firebase**
+- Create a Firebase project on the [Firebase Console](https://firebase.google.com).
+- Enable Realtime Database and set the rules to public (for testing) or configure security rules as per the production environment.
+
+2. **Clone the repository**
+
+```bash
+git clone https://github.com/2024-Hackathon-by-42-in-Asia/42-Bangkok-Repository pandapost
+cd pandapost
+```
+
+3. **Install dependencies**
+
+```bash
+npm install
+```
+
+4. **Configure environment variables**
+Create a .env.sample file in the root directory and populate it using the following sample:
+
+```bash
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+```
+
+5. ** Run the app**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*Usage*
+Users can place food orders through the web application.
+The system groups orders by proximity and delivery time, sending them via MRT in batches.
+Track deliveries in real-time via Firebase and view estimated delivery times.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+*Team Members *
+tsomsa - Cadet
+tliangso - Cadet
+tratanat - Cadet
+abossel - Cadet
+Other Members - 42Bangok Home Team
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*Acknowledgments*
+FoodPanda for sponsoring the 42Asia Hackathon 2024
+42Asia for organizing the hackathon
 
-## Learn More
+Thank to Tech Advisor
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thank to 42 Home Team
