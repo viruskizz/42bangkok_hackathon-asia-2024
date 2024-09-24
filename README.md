@@ -60,7 +60,7 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
 
-5. ** Run the app**
+5. **Run the app**
 
 ```bash
 npm run dev
