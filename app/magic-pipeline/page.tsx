@@ -1,66 +1,58 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as batch from "@/lib/actions/batch";
 import * as order from "@/lib/actions/order";
-import * as store from "@/lib/actions/store";
 import * as pipeline from "@/lib/actions/pipeline";
-import { DateTime } from "luxon";
 
 export default function Page() {
+  const period = 30 * 1;
   const [data, setData] = useState<string>();
+  const [timer, setTimer] = useState<number>(period);
 
-  const listBatchs = async () => {
-    const batches = await batch.list();
-    const data = [];
-    for (const b of Object.keys(batches)) {
-      data.push(await batch.getBatchDetail(b));
-    }
-    setData(JSON.stringify(data, null, 2));
-  };
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      if (timer === 0) {
+        const batch = await createBatch();
+        console.log(batch);
+        if (batch.name) {
+          const pipeline = await createPipeline();
+          const data = {batch, pipeline};
+          setData(JSON.stringify(data, null, 2));
+        } else {
+          setData(JSON.stringify({batch}, null, 2));
+        }
+        setTimer(period);
+      } else {
+        setTimer(timer - 1);
+      }
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [timer])
+
   const createBatch = async () => {
     const orders = await order.list("WAITING");
-    console.log(Object.keys(orders));
     const orderIds = Object.keys(orders);
-    const data = await batch.createSet(orderIds);
-    setData("Batch" + JSON.stringify(data, null, 2));
-  };
-
-  const listOrders = async () => {
-    const data = await order.list("WAITING");
-    console.log("data:", data);
-    setData(JSON.stringify(data, null, 2));
-  };
-
-  const createOrder = async () => {
-    const storeData = await store.get("Starbuck");
-    const data = await order.create({
-      username: "Araiva",
-      store: storeData.name,
-      items: storeData.items,
-      price: 100,
-      origin: "bangkok",
-      destination: "tokyo",
-      datetime: DateTime.now().toISO(),
-      status: "WAITING",
-    });
-    console.log("data:", data);
-    setData(JSON.stringify(data, null, 2));
-  };
-
-  const listPipelines = async () => {
-    const data = await pipeline.list();
-    console.log("data:", data);
-    setData(JSON.stringify(data, null, 2));
+    if (orderIds.length > 0) {
+      const data = await batch.createSet(orderIds);
+      return data;
+    }
+    return [];
+    // setData("Batch" + JSON.stringify(data, null, 2));
   };
 
   const createPipeline = async () => {
     const data = await pipeline.create();
     console.log("data:", data);
-    setData("PIPELINE" + JSON.stringify(data, null, 2));
+    // setData("PIPELINE" + JSON.stringify(data, null, 2));
   };
 
   return (
     <div>
+      <div>
+        <h1 className="text-xl">Timer: {timer}</h1>
+      </div>
       <button
         className="bg-yellow-700 text-white px-4 py-2 rounded-md"
         onClick={async () => {
