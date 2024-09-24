@@ -32,7 +32,7 @@ export async function create(): Promise<Pipeline[]> {
     }
 
 
-    const type = ['PICKUP', 'LOAD', 'UNLOAD', 'DROPOFF', 'DERIVER'];
+    const type = ['PICKUP', 'DELIVER'];
     const PreJob = {
       station: 'Tokyo',
       status: 'WAITING',
