@@ -71,17 +71,18 @@ Users can place food orders through the web application.
 The system groups orders by proximity and delivery time, sending them via MRT in batches.
 Track deliveries in real-time via Firebase and view estimated delivery times.
 
-*Team Members *
-tsomsa - Cadet
-tliangso - Cadet
-tratanat - Cadet
-abossel - Cadet
-Other Members - 42Bangok Home Team
+**Team Members**
+- [tsomsa](https://profile.intra.42.fr/users/tsomsa) - Cadet
+- [tliangso](https://profile.intra.42.fr/users/tliangso) - Cadet
+- [tratanat](https://profile.intra.42.fr/users/tratanat) - Cadet
+- [abossel](https://profile.intra.42.fr/users/abossel) - Cadet
+- Other Members - 42Bangok Home Team
 
-*Acknowledgments*
+**Acknowledgments**
+
 FoodPanda for sponsoring the 42Asia Hackathon 2024
 42Asia for organizing the hackathon
 
-Thank to Tech Advisor
+_Thank to Tech Advisor_
 
-Thank to 42 Home Team
+_Thank to 42 Home Team_
