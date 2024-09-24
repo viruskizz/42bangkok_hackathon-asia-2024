@@ -9,4 +9,5 @@ export interface Job {
   user: User | null;
   status: JobStatus;
   datetime: string;
+  batchId: string;
 }
