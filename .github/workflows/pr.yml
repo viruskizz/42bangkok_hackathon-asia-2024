@@ -1,0 +1,26 @@
+name: Test build
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: github.repository == 'viruskizz/42bangkok_hackathon-asia-2024'
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v4
+      - name: Setup Node.js $
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: ./backend/package-lock.json 
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+      - name: Prepare Environment
+        run: |
+          echo '${{ secrets.ENVIRONMENT_VALUES }}' > .env
+      - name: Build
+        run: npm run build
