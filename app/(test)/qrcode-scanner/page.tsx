@@ -63,7 +63,7 @@ export default function QRScannerPage() {
   )
 }
 
-function QrCodeIcon(props) {
+function QrCodeIcon(props: any) {
   return (
     <svg
       {...props}
@@ -93,7 +93,7 @@ function QrCodeIcon(props) {
   )
 }
 
-function RefreshCcwIcon(props) {
+function RefreshCcwIcon(props: any) {
   return (
     <svg
       {...props}

@@ -40,6 +40,7 @@
     "@radix-ui/react-tooltip": "^1.1.2",
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
+    "cmdk": "^1.0.0",
     "embla-carousel-react": "^8.3.0",
     "firebase": "^10.13.2",
     "firebase-admin": "^12.5.0",
