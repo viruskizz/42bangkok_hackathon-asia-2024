@@ -12,9 +12,20 @@ export async function list(): Promise<Batch[]> {
   return res.data;
 }
 
+export async function list_waiting_batch(): Promise<Batch[]> {
+  const table = 'batches.json';
+  const res = await instance.get(table, {
+    params: {
+      orderBy: '"status"',
+      equalTo: '"WAITING"'
+    }
+  });
+  return res.data;
+}
+
 export async function create(data: Batch) {
   const table = `batches.json`;
-  const res = await instance.post(table, data);
+  const res = await instance.post(table, { ...data});
   return res.data;
 }
 
@@ -31,7 +42,7 @@ export async function createSet(orderIds: string[]) {
       throw new Error(`${orderId} does not existed`);
     }
   }
-  return create({orderIds});
+  return create({ orderIds, status: 'WAITING' });
 }
 
 export async function getBatchDetail(id: string) {
