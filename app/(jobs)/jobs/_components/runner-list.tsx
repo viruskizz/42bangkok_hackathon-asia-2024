@@ -135,9 +135,9 @@ export const RunnerCard = (props: TRunnerCard) => {
       className="max-w-full w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-2 hover:cursor-pointer"
       onClick={handleClickRunner}
     >
-      <CardHeader className="bg-pink-500 text-white p-4">
+      {/* <CardHeader className="bg-pink-500 text-white p-4">
         <h2 className="text-xl font-bold">Order Summary</h2>
-      </CardHeader>
+      </CardHeader> */}
       <CardContent className="p-4">
         <div className="flex flex-col gap-2">
           <div className="flex items-center">
@@ -159,9 +159,9 @@ export const RunnerCard = (props: TRunnerCard) => {
             </p>
           </div>
         </div>
-        <div className="mt-6 text-right">
-          <p className="text-2xl font-bold text-pink-500">Total Price 0 $</p>
-        </div>
+        {/* <div className="mt-6 text-right">
+          <p className="text-2xl font-bold text-pink-500">0 $</p>
+        </div> */}
       </CardContent>
     </Card>
   );

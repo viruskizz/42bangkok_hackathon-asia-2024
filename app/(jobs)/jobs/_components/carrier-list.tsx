@@ -372,17 +372,17 @@ export const CarrierCard = (props: TCarrierCardProps) => {
   }
   return (
     <Card className="max-w-full w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-2 hover:cursor-pointer" onClick={handleCarrierClick}>
-      <CardHeader className="bg-pink-500 text-white p-4">
+      {/* <CardHeader className="bg-pink-500 text-white p-4">
         <h2 className="text-xl font-bold">Order Details</h2>
-      </CardHeader>
+      </CardHeader> */}
       <CardContent className="p-4">
         <div className="flex flex-col gap-2">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <PackageIcon className="text-pink-500 mr-2" size={20} />
             <p className="text-gray-700">
               Batch ID: <span className="font-semibold">{carrier.batchId}</span>
             </p>
-          </div>
+          </div> */}
           <div className="flex items-center">
             <MapPinIcon className="text-pink-500 mr-2" size={20} />
             <p className="text-gray-700">
@@ -390,13 +390,13 @@ export const CarrierCard = (props: TCarrierCardProps) => {
               <span className="font-semibold">{carrier.pickup.name}</span>
             </p>
           </div>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <MapPinIcon className="text-pink-500 mr-2" size={20} />
             <p className="text-gray-700">
               Dropoff:{" "}
               <span className="font-semibold">{carrier.dropoff.name}</span>
             </p>
-          </div>
+          </div> */}
           <div className="flex items-center">
             <ClockIcon className="text-pink-500 mr-2" size={20} />
             <p className="text-gray-700">
@@ -404,7 +404,7 @@ export const CarrierCard = (props: TCarrierCardProps) => {
               <span className="font-semibold">{carrier.timeline.standby}</span>
             </p>
           </div>
-          <div className="flex flex-col ml-6">
+          {/* <div className="flex flex-col ml-6">
             <p className="text-gray-700 font-semibold mb-1">Train Schedule:</p>
             {carrier.timeline.trainline.map((train, index) => (
               <div key={index} className="flex items-center">
@@ -415,7 +415,7 @@ export const CarrierCard = (props: TCarrierCardProps) => {
                 </p>
               </div>
             ))}
-          </div>
+          </div> */}
           <div className="flex items-center">
             <ClockIcon className="text-pink-500 mr-2" size={20} />
             <p className="text-gray-700">
