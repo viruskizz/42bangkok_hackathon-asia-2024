@@ -54,14 +54,14 @@ export async function put(orderId: string, data: Order) {
     }
   }
 
-  const jobs = await job.list();
-  const jobIds = jobs.map(job => job.batchId);
+  // const jobs = await job.list();
+  // const jobIds = jobs.map(job => job.batchId);
 
-  for (const job of data.timeline) {
-    if (!jobIds.includes(job.batchId)) {
-      throw new Error(`Job ${job.batchId} does not exist`);
-    }
-  }
+  // for (const job of data.timeline) {
+  //   if (!jobIds.includes(job.batchId)) {
+  //     throw new Error(`Job ${job.batchId} does not exist`);
+  //   }
+  // }
 
   const res = await instance.put(table, data);
   return res.data;
