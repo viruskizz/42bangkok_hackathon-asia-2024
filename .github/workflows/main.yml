@@ -3,8 +3,8 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -30,13 +30,6 @@ jobs:
       - name: Set upstream
         working-directory: ${{ env.DIRECTORY }}
         run: |
-            git remote add upstream https://2024-Hackathon-by-42-in-Asia:${{ secrets.API_TOKEN_GITHUB }}@github.com/2024-Hackathon-by-42-in-Asia/42-Bangkok-Repository.git
-            git fetch upstream
-      - name: Merge changes
-        run: |
+          git remote set-url origin https://2024-Hackathon-by-42-in-Asia:${{ secrets.API_TOKEN_GITHUB }}@github.com/2024-Hackathon-by-42-in-Asia/42-Bangkok-Repository.git
           git checkout ${{ env.BRANCH_NAME }}
-          git merge upstream/main --no-edit
-        working-directory: ${{ env.DIRECTORY }}
-      - name: Push changes to client's repo
-        run: git push origin ${{ env.BRANCH_NAME }}
-        working-directory: ${{ env.DIRECTORY }}
+          git push -u origin ${{ env.BRANCH_NAME }}
