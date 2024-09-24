@@ -1,6 +1,6 @@
 FROM node:20-bookworm-slim AS base
 
-COPY /app /app
+COPY . /app
 WORKDIR /app
 
 FROM base as prod-deps
