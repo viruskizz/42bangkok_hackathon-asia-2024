@@ -16,17 +16,20 @@ export type TRunnerItem = {
   };
   itemCount: string;
   distance: string;
-  orders: [
-    {
-      id: string;
-      location: string;
-      items: {
-        id: string;
-        name: string;
-        quantity: string;
-      }[];
-    }
-  ];
+  orders: TOrder[];
+};
+
+export type TItem = {
+  id: string;
+  name: string;
+  quantity: string;
+  is_delivered: boolean;
+};
+
+export type TOrder = {
+  id: string;
+  location: string;
+  items: TItem[];
 };
 
 export type TCarrierItem = {
@@ -51,6 +54,7 @@ export type TCarrierItem = {
       name: string;
     };
   };
+  orders: TOrder[];
 };
 
 export type TJobItem = {
@@ -85,9 +89,7 @@ function CarrierItem(props: { data: TCarrierItem }) {
   );
 }
 
-export function JobItem(
-  props: (TRunnerItem | TCarrierItem) & { type: "R" | "C" }
-) {
+export function JobItem(props: (TRunnerItem | TCarrierItem) & { type: "R" | "C" }) {
   const { type } = props;
 
   if (type === "R") {

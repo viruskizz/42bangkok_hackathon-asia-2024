@@ -22,7 +22,11 @@ function getJobDetails(jobs: TCarrierItem[], id: string) {
   return jobs.find((job) => job.id.toLowerCase() === id.toLowerCase());
 }
 
-export default function CarrierJobDetailsPage({ params, searchParams }) {
+export default function CarrierJobDetailsPage({
+  params,
+}: {
+  params: { jobId: string };
+}) {
   const jobStatus = false;
   const data = {
     carrier: [
@@ -54,6 +58,7 @@ export default function CarrierJobDetailsPage({ params, searchParams }) {
             name: "Dropoff A",
           },
         },
+        orders: [],
       },
     ],
   };
@@ -66,7 +71,7 @@ export default function CarrierJobDetailsPage({ params, searchParams }) {
       <Card>
         <CardHeader>
           <CardTitle className="text-center font-bold">
-            Batch ID: {params.jobId}
+            Batch ID: {details.batchId}
           </CardTitle>
         </CardHeader>
         <Separator />
