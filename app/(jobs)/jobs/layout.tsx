@@ -19,7 +19,7 @@ export default function JobLayout({
     children: React.ReactNode;
   }>) {
     return (
-     <div className="bg-white">
+     <div className="bg-white flex flex-col gap-4">
         {/* <RunnerTopbar /> */}
         <JobTopbar />
         {children}
