@@ -24,7 +24,7 @@ jobs:
           git config credential.helper store
           echo "https://github.com:${{ secrets.API_TOKEN_GITHUB }}@github.com" > ~/.git-credentials
       - name: Clone client's repo
-        run: git clone $${{ env.SOURCE_REPO }} ${{ env.DIRECTORY }}
+        run: git clone ${{ env.SOURCE_REPO }} ${{ env.DIRECTORY }}
       - name: Fetch latest changes
         run: git fetch origin
         working-directory: ${{ env.DIRECTORY }}  
