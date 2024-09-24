@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import NavMenu from "./_components/nav";
+import { Toaster } from "sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-screen-sm m-auto border-black border-2 `}
       >
         <NavMenu>{children}</NavMenu>
+        <Toaster richColors />
       </body>
     </html>
   );
