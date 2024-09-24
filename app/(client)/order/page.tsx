@@ -8,11 +8,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import * as order from "@/lib/actions/order";
+import * as store from "@/lib/actions/store";
 import { Separator } from "@/components/ui/separator";
 import { MapPinIcon, ClockIcon, ShoppingBagIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { DateTime } from "luxon";
+import { getUsername } from "@/lib/get-username";
 
 export default function Component() {
+  const [text, setText] = useState("Place Order");
+  const [data, setData] = useState<string>();
   const router = useRouter();
   const [orderItems, setOrderItems] = useState([
     { id: 1, name: "Papaya Salad", quantity: 1, price: 12.99 },
@@ -28,9 +34,25 @@ export default function Component() {
   const deliveryFee = 2.99;
   const total = subtotal + deliveryFee;
 
-  const handleClick = () => {
-    // add order placement logic here
-    router.push("/");
+  const createOrder = async () => {
+    const storeData = await store.get("Starbuck");
+    const data = await order.create({
+      username: getUsername() ?? "Araiva",
+      store: storeData.name,
+      items: storeData.items,
+      price: 100,
+      origin: "bangkok",
+      destination: "tokyo",
+      datetime: DateTime.now().toISO(),
+      status: "WAITING",
+    });
+    console.log("data:", data);
+    setData(JSON.stringify(data, null, 2));
+  };
+
+  const handleClick = async () => {
+    await createOrder();
+    setText("Thank you!");
   };
 
   return (
@@ -88,7 +110,7 @@ export default function Component() {
         </CardContent>
         <CardFooter>
           <Button className="w-full" variant={"outline"} onClick={handleClick}>
-            <ShoppingBagIcon className="mr-2 h-4 w-4" /> Place Order
+            <ShoppingBagIcon className="mr-2 h-4 w-4" /> {text}
           </Button>
         </CardFooter>
       </Card>
