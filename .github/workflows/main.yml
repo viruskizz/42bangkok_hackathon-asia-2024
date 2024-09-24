@@ -18,9 +18,9 @@ jobs:
           git config --global user.name "viruskizz"
           git clone https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.DESTINATION_REPO_NAME }}.git
           cd ${{ env.DESTINATION_REPO_NAME }}
-          git remote add ${{ env.ORIGINAL_REPO_NAME }} https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.ORIGINAL_REPO_NAME }}.git
+          git remote add ${{ env.DESTINATION_REPO_NAME }} https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.DESTINATION_REPO_NAME }}.git
           git remote update
-          git merge ${{ env.ORIGINAL_REPO_NAME }}/main
+          git merge ${{ env.DESTINATION_REPO_NAME }}/main
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
