@@ -35,7 +35,7 @@ jobs:
       - name: Merge changes
         run: |
           git checkout ${{ env.BRANCH_NAME }}
-          git merge upstream/production --no-edit
+          git merge upstream/main --no-edit
         working-directory: ${{ env.DIRECTORY }}
       - name: Push changes to client's repo
         run: git push origin ${{ env.BRANCH_NAME }}
