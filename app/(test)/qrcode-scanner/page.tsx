@@ -45,12 +45,11 @@ export default function QRScannerPage() {
         </CardContent>
         <CardFooter className="flex flex-col items-center justify-center gap-4 p-6">
           <div id="qr-result" className="text-2xl font-bold text-primary">
-            No QR code detected
-          </div>
-          <div id="qr-result" className="text-2xl font-bold text-primary">
             <Input
               type="text"
               value={text}
+              placeholder="Scan result"
+              readOnly
               onChange={(e) => setText(e.target.value)}
             />
           </div>
