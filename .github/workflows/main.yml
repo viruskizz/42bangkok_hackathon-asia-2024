@@ -30,7 +30,7 @@ jobs:
       - name: Set upstream
         working-directory: ${{ env.DIRECTORY }}
         run: |
-            git remote add upstream : https://2024-Hackathon-by-42-in-Asia:${{ secrets.API_TOKEN_GITHUB }}@github.com/2024-Hackathon-by-42-in-Asia/42-Bangkok-Repository.git
+            git remote add upstream https://2024-Hackathon-by-42-in-Asia:${{ secrets.API_TOKEN_GITHUB }}@github.com/2024-Hackathon-by-42-in-Asia/42-Bangkok-Repository.git
             git fetch upstream
       - name: Merge changes
         run: |
