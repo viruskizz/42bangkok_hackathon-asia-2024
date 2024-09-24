@@ -58,6 +58,7 @@ export default function CarrierJobDetailsPage({
             name: "Dropoff A",
           },
         },
+        orders: [],
       },
     ],
   };
@@ -104,9 +105,7 @@ export default function CarrierJobDetailsPage({
             </Timeline>
           </div>
           <div className="flex flex-row justify-between mt-4">
-            <p className="font-bold">
-              Dropoff @{details.timeline.dropoff.name}
-            </p>
+            <p className="font-bold">Dropoff @{details.timeline.dropoff.name}</p>
             <p>{details.timeline.dropoff.time}</p>
           </div>
         </CardContent>
