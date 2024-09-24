@@ -13,8 +13,7 @@ jobs:
       DIRECTORY: client_repo
       SOURCE_REPO: https://github.com/viruskizz/42bangkok_hackathon-asia-2024.git
       DESTINATION_REPO: https://github.com/2024-Hackathon-by-42-in-Asia/42-Bangkok-Repository.git
-      # BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-      BRANCH_NAME: main
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,13 +22,20 @@ jobs:
           git config --global user.email "kizzaraiva@gmail.com"
           git config --global user.name "viruskizz"
           git config credential.helper store
+      - name: Clone client's repo
+        run: git clone ${{ env.SOURCE_REPO }} ${{ env.DIRECTORY }}
       - name: Fetch latest changes
         run: git fetch origin
+        working-directory: ${{ env.DIRECTORY }}  
       - name: Set upstream
+        working-directory: ${{ env.DIRECTORY }}
         run: |
             git remote add upstream https://2024-Hackathon-by-42-in-Asia:${{ secrets.API_TOKEN_GITHUB }}@github.com/2024-Hackathon-by-42-in-Asia/42-Bangkok-Repository.git
             git fetch upstream
-      # - name: Merge changes
-      #   run: git checkout ${{ env.BRANCH_NAME }}
+      - name: Merge changes
+        run: |
+          git checkout ${{ env.BRANCH_NAME }}
+        working-directory: ${{ env.DIRECTORY }}
       - name: Push changes to client's repo
-        run: git push upstream ${{ env.BRANCH_NAME }}
+        run: git push -u upstream ${{ env.BRANCH_NAME }}
+        working-directory: ${{ env.DIRECTORY }}
