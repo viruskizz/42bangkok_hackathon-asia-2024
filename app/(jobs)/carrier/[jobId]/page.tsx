@@ -66,7 +66,7 @@ export default function CarrierJobDetailsPage({ params, searchParams }) {
       <Card>
         <CardHeader>
           <CardTitle className="text-center font-bold">
-            Batch ID: {params.jobId}
+            Batch ID: {params.batchId}
           </CardTitle>
         </CardHeader>
         <Separator />

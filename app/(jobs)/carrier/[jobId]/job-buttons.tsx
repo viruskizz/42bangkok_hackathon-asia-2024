@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 function dropoffDelivery(id: string) {
   return () => {
@@ -17,7 +16,6 @@ function acceptDelivery(id: string) {
 }
 
 export default function JobButtons(props: { status: boolean; jobId: string }) {
-  console.log(props);
   if (props.status) {
     return (
       <div className="flex flex-col gap-2 w-full justify-around">
