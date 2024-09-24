@@ -26,3 +26,9 @@ export async function update(id: string, data: Store) {
   const res = await instance.put(url, data);
   return res.data;
 }
+
+export async function get(id: string): Promise<Store> {
+  const url = `${table}/${id}.json`;
+  const res = await instance.get(url);
+  return res.data;
+}
