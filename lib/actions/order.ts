@@ -46,14 +46,6 @@ export async function create(data: Order) {
 
 export async function put(orderId: string, data: Order) {
   const table = `orders/${orderId}.json`;
-  const items = await item.list();
-  const itemNames = items.map(item => item.name);
-  for (const item of data.items) {
-    if (!itemNames.includes(item.name)) {
-      throw new Error(`Item ${item.name} does not exist`);
-    }
-  }
-
   // const jobs = await job.list();
   // const jobIds = jobs.map(job => job.batchId);
 
