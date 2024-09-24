@@ -22,7 +22,11 @@ function getJobDetails(jobs: TCarrierItem[], id: string) {
   return jobs.find((job) => job.id.toLowerCase() === id.toLowerCase());
 }
 
-export default function CarrierJobDetailsPage({ params, searchParams }) {
+export default function CarrierJobDetailsPage({
+  params,
+}: {
+  params: { jobId: string };
+}) {
   const jobStatus = false;
   const data = {
     carrier: [
@@ -100,7 +104,9 @@ export default function CarrierJobDetailsPage({ params, searchParams }) {
             </Timeline>
           </div>
           <div className="flex flex-row justify-between mt-4">
-            <p className="font-bold">Dropoff @{details.timeline.dropoff.name}</p>
+            <p className="font-bold">
+              Dropoff @{details.timeline.dropoff.name}
+            </p>
             <p>{details.timeline.dropoff.time}</p>
           </div>
         </CardContent>
