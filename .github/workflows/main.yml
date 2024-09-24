@@ -3,18 +3,14 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
     container: pandoc/latex
     steps:
       - uses: actions/checkout@v4
-    #   - name: Install mustache (to update the date)
-    #     run:  apk add ruby && gem install mustache
-    #   - name: creates output
-    #     run:  sh ./build.sh
       - name: Pushes to another repository
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@target-branch
@@ -27,5 +23,5 @@ jobs:
           user-email: kizzaraiva@gmail.com
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: main
-      - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY
+      - name: Finishing
+        run: echo "Code already push to" $DESTINATION_CLONED_DIRECTORY
