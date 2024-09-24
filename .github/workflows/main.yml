@@ -19,7 +19,7 @@ jobs:
           # git clone https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.DESTINATION_REPO_NAME }}.git
           # cd ${{ env.DESTINATION_REPO_NAME }}
           git remote set-url origin  https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.DESTINATION_REPO_NAME }}.git
-          git push origin ${{ env.BRANCH_NAME }}
+          git push origin main
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
