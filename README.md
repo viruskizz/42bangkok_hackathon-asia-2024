@@ -1,11 +1,13 @@
-# BatchFoodMRT - Sustainable Food Delivery via Public Transport 🚄🍱
+# PandaPost - Sustainable Food Delivery via Public Transport 🚄🍱
 
-<img src="./public/logo-icon.png" width="720">
+<center>
+    <img src="./public/logo-icon.png" width="720">
+</center>
 
 ### 42Asia Hackathon 2024 - Sponsored by FoodPanda
 
 ## Project Overview
-**BatchFoodMRT** is a sustainable food delivery solution designed to reduce carbon emissions by utilizing MRT public transport for food delivery. Instead of delivering individual orders, we introduce a batch delivery model where multiple food orders are collected and delivered together using public transport routes, minimizing the carbon footprint of traditional delivery methods.
+**PandaPost** is a sustainable food delivery solution designed to reduce carbon emissions by utilizing MRT public transport for food delivery. Instead of delivering individual orders, we introduce a batch delivery model where multiple food orders are collected and delivered together using public transport routes, minimizing the carbon footprint of traditional delivery methods.
 
 This project was built using **Next.js** for the frontend and **Google Firebase RealTime Database** for the backend, providing a seamless and real-time solution to track and coordinate food orders and deliveries efficiently.
 
@@ -18,7 +20,7 @@ This project was built using **Next.js** for the frontend and **Google Firebase 
 ## Tech Stack
 - **Frontend:** [Next.js](https://nextjs.org/)
 - **Backend:** [Google Firebase Realtime Database](https://firebase.google.com/products/realtime-database)
-- **Hosting:** [Railway] (https://railway.app/)
+- **Hosting:** [Railway](https://railway.app/)
 - **DevOps** Github Actions
 
 ## Installation
@@ -63,3 +65,23 @@ NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```bash
 npm run dev
 ```
+
+*Usage*
+Users can place food orders through the web application.
+The system groups orders by proximity and delivery time, sending them via MRT in batches.
+Track deliveries in real-time via Firebase and view estimated delivery times.
+
+*Team Members *
+tsomsa - Cadet
+tliangso - Cadet
+tratanat - Cadet
+abossel - Cadet
+Other Members - 42Bangok Home Team
+
+*Acknowledgments*
+FoodPanda for sponsoring the 42Asia Hackathon 2024
+42Asia for organizing the hackathon
+
+Thank to Tech Advisor
+
+Thank to 42 Home Team
