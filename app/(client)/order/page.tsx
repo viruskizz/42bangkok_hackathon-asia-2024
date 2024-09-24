@@ -15,23 +15,25 @@ import { MapPinIcon, ClockIcon, ShoppingBagIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { DateTime } from "luxon";
 import { getUsername } from "@/lib/get-username";
+import { generateQRCodeFromText } from "@/lib/qr-generator";
+import Image from "next/image";
 
 export default function Component() {
   const [text, setText] = useState("Place Order");
+  const [qrCode, setQrCode] = useState<string | null>(null);
   const [data, setData] = useState<string>();
   const router = useRouter();
   const [orderItems, setOrderItems] = useState([
-    { id: 1, name: "Papaya Salad", quantity: 1, price: 12.99 },
-    { id: 2, name: "Caesar Salad", quantity: 1, price: 8.99 },
-    { id: 3, name: "Garlic Bread", quantity: 2, price: 4.99 },
-    { id: 4, name: "Coca Cola", quantity: 2, price: 2.49 },
+    { id: 1, name: "Esspresso", quantity: 1, price: 5.0 },
+    { id: 2, name: "Ameriano", quantity: 1, price: 4.0 },
+    { id: 3, name: "Flat White", quantity: 1, price: 5.0 },
   ]);
 
   const subtotal = orderItems.reduce(
     (sum, item) => sum + item.quantity * item.price,
     0
   );
-  const deliveryFee = 2.99;
+  const deliveryFee = 0.5;
   const total = subtotal + deliveryFee;
 
   const createOrder = async () => {
@@ -52,6 +54,8 @@ export default function Component() {
 
   const handleClick = async () => {
     await createOrder();
+    const qrCode = await generateQRCodeFromText({ id: text });
+    setQrCode(qrCode);
     setText("Thank you!");
   };
 
@@ -112,6 +116,14 @@ export default function Component() {
           <Button className="w-full" variant={"outline"} onClick={handleClick}>
             <ShoppingBagIcon className="mr-2 h-4 w-4" /> {text}
           </Button>
+          {qrCode && (
+            <div>
+              <Image src={qrCode} alt="" width={500} height={500} />
+              <p className="text-xs">
+                Scan at the PandaPost locker to retrieve your order at 4:00PM
+              </p>
+            </div>
+          )}
         </CardFooter>
       </Card>
     </div>
