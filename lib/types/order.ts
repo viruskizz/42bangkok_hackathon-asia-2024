@@ -1,15 +1,16 @@
 import { Item } from "./item";
 import { Job } from "./job";
-import { User } from "./user";
 
+export type OrderStatus = 'WAITING' | 'DERIVERING' | 'DONE';
 export interface Order {
-  id: string;
-  user: User;
+  id?: string;
+  username: string;
   store: string;
   items: Item[];
   price: number;
   datetime: string;
   origin: string;
   destination: string;
-  timeline: Job[];
+  timeline?: Job[];
+  status: OrderStatus;
 }
