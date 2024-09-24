@@ -21,7 +21,7 @@ export default function JobLayout({
     return (
      <div className="bg-white flex flex-col gap-4">
         {/* <RunnerTopbar /> */}
-        <JobTopbar />
+        {/* <JobTopbar /> */}
         {children}
      </div>
     );
