@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowBigDownDashIcon, CheckIcon, ScanQrCodeIcon } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "sonner";
 
 export default async function RunnerJobPage({
   params,
@@ -28,9 +29,13 @@ export default async function RunnerJobPage({
     },
     {
       name: "Order 02",
-      location: "Container B"
+      location: "Container B",
     },
   ];
+
+  const handleSubmit = () => {
+    toast.success("Job completed");
+  };
 
   return (
     <div className="px-4 py-2">
@@ -43,32 +48,31 @@ export default async function RunnerJobPage({
           return (
             <Card key={order.name} className="bg-white p-2">
               <div className="flex justify-between">
-				<h2 className="text-lg font-bold">
-					{order.name}
-				</h2>
-				<Checkbox className="w-8 h-8 data-[state=checked]:bg-green-600" />
-			  </div>
+                <h2 className="text-lg font-bold">{order.name}</h2>
+                <Checkbox className="w-8 h-8 data-[state=checked]:bg-green-600" />
+              </div>
               <p>Location: {order.location}</p>
-			  <div className="flex justify-end">
-				<Button className="bg-green-600 mt-2">
-					<Link href={`/runner/${id}/dropoff`}>
-						Dropoff Scan <ScanQrCodeIcon className="ml-2 mr-0 float-right"/>
-					</Link>
-				</Button>
-			  </div>
+              <div className="flex justify-end">
+                <Button className="bg-green-600 mt-2">
+                  <Link href={`/runner/${id}/dropoff`}>
+                    Dropoff Scan{" "}
+                    <ScanQrCodeIcon className="ml-2 mr-0 float-right" />
+                  </Link>
+                </Button>
+              </div>
             </Card>
           );
         })}
       </div>
       <div className="flex justify-center gap-4 pt-2 content-end">
-		<Button variant={"outline"} className="text-lg">
-		  <Link href={`/runner/${id}/accept`}>Back</Link>
+        <Button variant={"outline"} className="text-lg">
+          <Link href={`/runner/${id}/accept`}>Back</Link>
         </Button>
         <Button className="bg-pink-500">
-			<Link href="/jobs">
-			Finish <CheckIcon className="ml-2 mr-0 float-right"/>
-			</Link>
-		</Button>
+          <Link href="/jobs">
+            Finish <CheckIcon className="ml-2 mr-0 float-right" />
+          </Link>
+        </Button>
       </div>
     </div>
   );

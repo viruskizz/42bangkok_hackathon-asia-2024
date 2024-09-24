@@ -1,4 +1,6 @@
+"use client";
 import { TCarrierItem, TItem, TOrder } from "@/app/(jobs)/_components/JobItem";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -15,6 +17,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Link from "next/link";
+import { toast } from "sonner";
 
 function OrderItemRow(props: { item: TItem }) {
   return (
@@ -23,7 +27,9 @@ function OrderItemRow(props: { item: TItem }) {
         <div className="font-medium">#{props.item.id}</div>
       </TableCell>
       <TableCell className="sm:table-cell">{props.item.name}</TableCell>
-      <TableCell className="sm:table-cell text-right">{props.item.quantity}</TableCell>
+      <TableCell className="sm:table-cell text-right">
+        {props.item.quantity}
+      </TableCell>
     </TableRow>
   );
 }
@@ -37,20 +43,21 @@ function OrderDetailsCard(props: { order: TOrder }) {
             <div className="flex justify-between">
               <div className="flex flex-col">Order #{props.order.id}</div>
               <div className="flex flex-col">
-                <Checkbox id={props.order.id} />
+                <Checkbox
+                  id={props.order.id}
+                  className="w-8 h-8 data-[state=checked]:bg-green-600"
+                />
               </div>
             </div>
           </CardTitle>
-          <CardDescription>
-            <div className="flex flex-col">Location: {props.order.location}</div>
-          </CardDescription>
+          <CardDescription>Location: {props.order.location}</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader className="hidden">
               <TableRow className="justify-around w-full">
                 <TableHead>Item</TableHead>
-                <div className="flex grow"></div>
+                {/* <div className="flex grow"></div> */}
                 <TableHead className="hidden sm:table-cell">Name</TableHead>
                 <TableHead className="hidden sm:table-cell">No.</TableHead>
               </TableRow>
@@ -148,15 +155,26 @@ export default function CarrierJobDropoffPage({
     ],
   };
   const orders: TOrder[] = data.orders;
+
+  const handleSubmit = () => {
+    toast.success("Dropoff completed");
+  };
   return (
     <div className="px-4 py-4">
       <Card className="p-3 bg-red-100">
         <CardHeader className="p-4">
-          <CardTitle className="text-center">Batch ID: {data.batchId}</CardTitle>
+          <CardTitle className="text-center">
+            Batch ID: {data.batchId}
+          </CardTitle>
         </CardHeader>
         {orders.map((order: TOrder) => {
           return <OrderDetailsCard key={order.id} order={order} />;
         })}
+        <Link href="/jobs">
+          <Button variant={"outline"} className="w-full" onClick={handleSubmit}>
+            Done
+          </Button>
+        </Link>
       </Card>
     </div>
   );

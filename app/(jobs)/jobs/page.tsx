@@ -7,9 +7,8 @@ import {
 } from "@/app/(jobs)/_components/JobItem";
 import { JobScreen } from "./_components/job-screen";
 
-
 export default async function JobsPage() {
-  const data_2 = await create_job_runnser();
+  // const data_2 = await create_job_runnser();
   const data: { runner: TRunnerItem[]; carrier: TCarrierItem[] } = {
     runner: [
       {
@@ -28,17 +27,17 @@ export default async function JobsPage() {
                 quantity: "1",
               },
               {
-                id: "I001",
+                id: "I002",
                 name: "Item B",
                 quantity: "2",
               },
               {
-                id: "I001",
+                id: "I003",
                 name: "Item C",
                 quantity: "1",
               },
               {
-                id: "I001",
+                id: "I004",
                 name: "Item D",
                 quantity: "1",
               },
@@ -97,7 +96,7 @@ export default async function JobsPage() {
         },
       },
       {
-        id: "R001",
+        id: "R004",
         itemCount: "1",
         distance: "1.5km",
         orders: [
