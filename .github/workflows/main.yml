@@ -3,12 +3,13 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
     container: pandoc/latex
+    if: github.event.repository.name == 'viruskizz/42bangkok_hackathon-asia-2024'
     steps:
       - uses: actions/checkout@v4
       - name: Pushes to another repository
