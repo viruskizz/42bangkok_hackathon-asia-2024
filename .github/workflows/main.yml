@@ -6,26 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
-    container: pandoc/latex
     if: github.repository == 'viruskizz/42bangkok_hackathon-asia-2024'
     steps:
-      - uses: actions/checkout@v4
-    #   - name: Pushes to another repository
-    #     id: push_directory
-    #     uses: cpina/github-action-push-to-another-repository@target-branch
-    #     env:
-    #       API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-    #     with:
-    #       source-directory: .
-    #       destination-github-username: '2024-Hackathon-by-42-in-Asia'
-    #       destination-repository-name: '42-Bangkok-Repository'
-    #       user-email: kizzaraiva@gmail.com
-    #       commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-    #       target-branch: main
-    #   - name: Finishing
-    #     run: echo "Code already push to" $DESTINATION_CLONED_DIRECTORY
+      - name: Checkout source repository
+        uses: actions/checkout@v4
       - name: Push to destination repository
         run: |
           git config --global user.email "kizzaraiva@gmail.com"
