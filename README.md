@@ -14,6 +14,9 @@ This project was built using **Next.js** for the frontend and **Google Firebase 
 ## Demo
 [Web Demo](https://panda-post.up.railway.app/)
 
+## Presentation
+[Web Presentation](https://www.canva.com/design/DAGRoWyPtKs/qdprn7konbMq0gnUirPKyw/view?utm_content=DAGRoWyPtKs&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+
 ## Key Features
 - **Batch Delivery Optimization:** Orders are grouped by delivery zones and sent together, reducing unnecessary trips.
 - **MRT-Based Delivery Routing:** Utilizes public MRT routes for delivering food in batches, leveraging existing infrastructure.
