@@ -10,6 +10,7 @@ import Image from "next/image";
 import MAP_IMAGE from "@/public/map_mockup.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { CheckIcon } from "lucide-react";
 
 export default async function RunnerJobPage({
   params,
@@ -48,7 +49,7 @@ export default async function RunnerJobPage({
     },
     {
       name: "Order 02",
-      location: "Location A",
+      location: "Location B",
       items: [
         {
           id: "I001",
@@ -63,7 +64,7 @@ export default async function RunnerJobPage({
     <div className="px-4 py-2">
       <h1 className="text-3xl text-white font-black">Job #{id}</h1>
       <div className="space-y-2">
-        <div className="rounded overflow-hidden">
+        <div className="rounded border-gray-300 border-4 overflow-hidden">
           <Image src={MAP_IMAGE} alt="map" />
         </div>
         {data.map((order) => {
@@ -86,17 +87,26 @@ export default async function RunnerJobPage({
                   })}
                 </CollapsibleContent>
               </Collapsible>
+			  {/* <div className="flex justify-end">
+				<Button className="bg-pink-500">
+					<Link href={`/runner/${id}/accept`}>
+						Accept <CheckIcon className="ml-2 mr-0 float-right"/>
+					</Link>
+				</Button>
+			  </div> */}
             </Card>
           );
         })}
       </div>
-      <div className="flex justify-center gap-4 pt-2">
+      <div className="flex justify-center gap-4 pt-2 content-end">
         <Button variant={"outline"} className="text-lg">
           <Link href={`/jobs`}>Back</Link>
         </Button>
-        <Button variant={"outline"} className="text-lg">
-          <Link href={`/runner/${id}/accept`}>Accept</Link>
-        </Button>
+        <Button className="bg-pink-500">
+			<Link href={`/runner/${id}/accept`}>
+				Accept <CheckIcon className="ml-2 mr-0 float-right"/>
+			</Link>
+		</Button>
       </div>
     </div>
   );
