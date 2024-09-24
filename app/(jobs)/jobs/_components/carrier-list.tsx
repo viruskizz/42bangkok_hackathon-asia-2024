@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ClockIcon, MapPinIcon, PackageIcon, TrainIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const CARRIER_LIST = [
     {
@@ -365,8 +366,12 @@ export type TCarrierCardProps = {
 };
 export const CarrierCard = (props: TCarrierCardProps) => {
   const { carrier } = props;
+  const router = useRouter();
+  const handleCarrierClick = () => {
+    router.push(`/carrier/${carrier.id}`);
+  }
   return (
-    <Card className="max-w-full w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-2">
+    <Card className="max-w-full w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-2 hover:cursor-pointer" onClick={handleCarrierClick}>
       <CardHeader className="bg-pink-500 text-white p-4">
         <h2 className="text-xl font-bold">Order Details</h2>
       </CardHeader>

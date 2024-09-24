@@ -1,8 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { BikeIcon, MapPinIcon, PackageIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export type TRunnerCard = {
+  id: string;
   itemCount: string;
   distance: string;
   dropoff: {
@@ -123,9 +125,16 @@ const RUNNER_LIST = [
 ];
 
 export const RunnerCard = (props: TRunnerCard) => {
-  const { itemCount, distance, dropoff } = props;
+  const { itemCount, distance, dropoff, id } = props;
+  const router = useRouter();
+  const handleClickRunner = () => {
+    router.push(`/runner/${id}`);
+  };
   return (
-    <Card className="max-w-full w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-2">
+    <Card
+      className="max-w-full w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-2 hover:cursor-pointer"
+      onClick={handleClickRunner}
+    >
       <CardHeader className="bg-pink-500 text-white p-4">
         <h2 className="text-xl font-bold">Order Summary</h2>
       </CardHeader>
