@@ -16,14 +16,13 @@ jobs:
         run: |
           git config --global user.email "kizzaraiva@gmail.com"
           git config --global user.name "viruskizz"
-          git clone https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.DESTINATION_REPO_NAME }}.git
-          cd ${{ env.DESTINATION_REPO_NAME }}
-          git remote add ${{ env.DESTINATION_REPO_NAME }} https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.DESTINATION_REPO_NAME }}.git
-          git remote update
-          git merge ${{ env.DESTINATION_REPO_NAME }}/main
-          git push origin main
+          # git clone https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.DESTINATION_REPO_NAME }}.git
+          # cd ${{ env.DESTINATION_REPO_NAME }}
+          git remote set-url origin  https://${{ env.ORG_NAME }}:${{ secrets.API_TOKEN_GITHUB }}@github.com/${{ env.ORG_NAME }}/${{ env.DESTINATION_REPO_NAME }}.git
+          git push origin ${{ env.BRANCH_NAME }}
         env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
+          ORG_NAME: 2024-Hackathon-by-42-in-Asia
           DESTINATION_REPO_NAME: '42-Bangkok-Repository'
           ORIGINAL_REPO_NAME: ${{ github.event.repository.name }}
-          ORG_NAME: 2024-Hackathon-by-42-in-Asia
