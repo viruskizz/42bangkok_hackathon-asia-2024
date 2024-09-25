@@ -28,9 +28,8 @@ export async function create(): Promise<Pipeline[]> {
 
     const orderIds = Object.keys(orders);
     for (const [key, value] of Object.entries(orders)) {
-      order.put(key, { ...value, status: 'DERIVERING' });
+      await order.put(key, { ...value, status: 'DERIVERING' });
     }
-
 
     const type = ['PICKUP', 'DELIVER'];
     const PreJob = {
